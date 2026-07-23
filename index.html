@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let container = document.createElement("div");
+      container.style.border = "2px solid black";
+      container.style.height = "400px";
+      container.style.width = "600px";
+      container.style.display = "flex";
+      container.style.justifyContent = "space-evenly";
+      container.style.alignItems = "center";
+      container.style.alignContent = "center";
+      container.style.backgroundColor = "blue";
+
+      let plus = document.createElement("div");
+      plus.style.border = "2px solid black";
+      plus.innerText = "+";
+      plus.style.height = "60px";
+      plus.style.width = "60px";
+      plus.style.textAlign = "center";
+      plus.style.alignContent = "center";
+      plus.style.fontSize = "40px";
+      plus.style.backgroundColor = "yellow";
+
+      let zero = document.createElement("div");
+      zero.style.border = "2px solid black";
+      zero.innerText = "0";
+      zero.style.height = "60px";
+      zero.style.width = "60px";
+      zero.style.textAlign = "center";
+      zero.style.alignContent = "center";
+      zero.style.fontSize = "40px";
+      zero.style.backgroundColor = "yellow";
+
+      let minus = document.createElement("div");
+      minus.style.border = "2px solid black";
+      minus.innerText = "-";
+      minus.style.height = "60px";
+      minus.style.width = "60px";
+      minus.style.textAlign = "center";
+      minus.style.alignContent = "center";
+      minus.style.fontSize = "40px";
+      minus.style.backgroundColor = "yellow";
+
+      let container2 = document.createElement("div");
+      container2.style.border = "2px solid black";
+      container2.style.height = "400px";
+      container2.style.width = "600px";
+      container2.style.display = "grid";
+      container2.style.justifyContent = "space-evenly";
+      container2.style.alignItems = "center";
+      container2.style.alignContent = "center";
+      container2.style.gridTemplateColumns = "1fr 1fr";
+
+      let div1 = document.createElement("div");
+      div1.style.height = "100px";
+      div1.style.width = "250px";
+      div1.style.border = "2px solid black";
+      div1.style.margin = "20px";
+      div1.style.backgroundColor = "green";
+      div1.style.textAlign = "center";
+      div1.innerText = "ADD 5";
+      div1.style.alignContent = "center";
+      div1.style.fontSize = "30px";
+      div1.style.color = "white";
+      div1.style.fontWeight = "500";
+
+      let div2 = document.createElement("div");
+      div2.style.height = "100px";
+      div2.style.width = "250px";
+      div2.style.border = "2px solid black";
+      div2.style.margin = "20px";
+      div2.style.backgroundColor = "green";
+      div2.innerText = "SUB 5";
+      div2.style.textAlign = "center";
+      div2.style.alignContent = "center";
+      div2.style.fontSize = "30px";
+      div2.style.color = "white";
+      div2.style.fontWeight = "500";
+
+      let div3 = document.createElement("div");
+      div3.style.height = "100px";
+      div3.style.width = "250px";
+      div3.style.border = "2px solid black";
+      div3.style.margin = "20px";
+      div3.style.backgroundColor = "green";
+      div3.innerText = "ADD 10";
+      div3.style.textAlign = "center";
+      div3.style.alignContent = "center";
+      div3.style.fontSize = "30px";
+      div3.style.color = "white";
+      div3.style.fontWeight = "500";
+
+      let div4 = document.createElement("div");
+      div4.style.height = "100px";
+      div4.style.width = "250px";
+      div4.style.border = "2px solid black";
+      div4.style.margin = "20px";
+      div4.style.backgroundColor = "green";
+      div4.innerText = "SUB 10";
+      div4.style.textAlign = "center";
+      div4.style.alignContent = "center";
+      div4.style.fontSize = "30px";
+      div4.style.color = "white";
+      div4.style.fontWeight = "500";
+
+      let count = Number(localStorage.getItem("count")) || 0;
+      zero.innerText = count;
+      localStorage.setItem("count", count);
+      plus.addEventListener("click", () => {
+        count++;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+      minus.addEventListener("click", () => {
+        count--;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+      div1.addEventListener("click", () => {
+        count += 5;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+      div2.addEventListener("click", () => {
+        count -= 5;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+      div3.addEventListener("click", () => {
+        count += 10;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+      div4.addEventListener("click", () => {
+        count -= 10;
+        zero.innerText = count;
+        localStorage.setItem("count", count);
+      });
+
+      document.addEventListener("keyup", (event) => {
+        if (event.key === "ArrowUp") {
+          count++;
+          zero.innerText = count;
+          localStorage.setItem("count", count);
+        }
+        if (event.key === "ArrowDown") {
+          count--;
+          zero.innerText = count;
+          localStorage.setItem("count", count);
+        }
+      });
+
+      document.body.appendChild(container);
+      document.body.append(container2);
+      container.append(plus, zero, minus);
+      container2.append(div1, div2, div3, div4);
+
+      document.body.style.display = "flex";
+      document.body.style.alignContent = "Center";
+      document.body.style.alignItems = "Center";
+      document.body.style.justifyContent = "Center";
+    </script>
+  </body>
+</html>
